@@ -1,0 +1,29 @@
+{% extends "demo/base.html"%}
+{% block start%}
+<!-- <h2>Hello in foods</h2> -->
+<div class="container" mt-5>
+
+ <form class="col-6 mx-auto card p-4 shadow-lg" method="post" enctype="multipart/form-data">
+ {% csrf_token%}
+ <h2>Welcome of tasties foods Restaurent </h2>
+ <hr>
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Food_name</label>
+    <input name="food_name" required type="text" class="form-control" >
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1"  class="form-label">Food_desc</label>
+    <textarea class="form-control" required name="food_desc"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Food_img</label>
+    <input name="food_img" type="file" class="form-control">
+  </div>
+
+  <div class="col-12">
+    <button type="submit" class="btn btn-success">Add Food</button>
+  </div>
+</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "demo/base.html"%}
+{% block start%}
+
+  <h1 style="color: rgb(99, 165, 42);">This is Index page</h1>
+
+  <a href="/contact/">Contact</a><br>
+  <a href="/about/">About</a>
+
+    <!-- {{peoples}} -->
+    <table class="container">
+        <tr>
+          <th>S.no</th>
+          <th>Name</th> 
+          <th>Age</th>
+          <th>Can vote</th>
+        </tr>
+          {% for i in peoples %}
+        <tr>
+          <td>{{ forloop.counter}}
+            
+          </td>
+          <td>{{i.Name}}</td>
+          <td>{{i.age}}</td>
+          
+          <td {% if i.age <= 21 %} style="background:red" {% endif %}>
+          {% if i.age >= 21 %}
+           👍
+          {% else %}
+            👎
+          {% endif %}
+          </td>
+        
+        </tr>
+        {% endfor%}
+      </table>
+      
+      <p>
+        {% if 'gilki' in vegetables %}
+          Yes available gilki
+        {%elif 'Palak' in vegetables %}  
+        Yes available Palak
+        {% else %}
+          Not available
+        {% endif %}    
+      </p>
+      
+      
+{% endblock %}      
